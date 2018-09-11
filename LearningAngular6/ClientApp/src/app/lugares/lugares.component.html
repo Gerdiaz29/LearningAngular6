@@ -1,0 +1,34 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
+</agm-map>
+<hr />
+<div class="row">
+  <div class="col-md-8">
+    <h2>Lugares Cercanos</h2>
+    <ul class="list-group">
+      <a class="btn btn-primary" routerLink="/crear/new">Crear nuevo Negocio</a>
+      <ng-container *ngFor="let lugar of lugares">
+        <a [routerLink]="['/crear', lugar.id]">
+          <li class="list-group-item">{{lugar.nombre}} </li>
+        </a>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>Destacados</h2>
+  </div>
+</div>
+<!-- <ul class=" list-group ">
+  <ng-container *ngFor="let person of Persons " [ngSwitch]="person.tipo ">
+    <a>
+      <li [routerLink]="['/detalle/{{person.id}}']" routerLinkActive="router-link-active" class="list-group-item " appContarClicks
+        [ngStyle]="{color: (person.edad>18) ? 'black' : 'gray'}" [appResaltar]="person.edad"> {{person.nombre}} -
+        <span *ngSwitchCase="1" [ngStyle]="{ color : 'green'}">niño</span>
+        <span *ngSwitchCase="2" [ngStyle]="{ color : 'red'}">Adolescente</span>
+        <span *ngSwitchCase="3" [ngStyle]="{ color: 'blue'}">Adulto</span>
+        <span *ngSwitchCase="4" [ngStyle]="{ color: 'purple'}">Adulto Mayor</span>
+        <span *ngSwitchCase="5" [ngStyle]="{ color: 'orange'}">Anciano</span>
+      </li>
+    </a>
+  </ng-container>
+</ul> -->
