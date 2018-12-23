@@ -7,7 +7,7 @@ namespace LearningAngular6.Repository
   {
     List<Lugar> GetLugares();
     Lugar GetLugarById(int id);
-    bool SaveLugar(Lugar enrollment);
+    bool GuardarLugar(Lugar enrollment);
     bool DeleteLugar(int id);
   }
 }

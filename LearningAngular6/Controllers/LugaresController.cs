@@ -1,8 +1,7 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 using LearningAngular6.Model;
 using LearningAngular6.Repository;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace LearningAngular6.Controllers
 {
@@ -38,7 +37,7 @@ namespace LearningAngular6.Controllers
         public IActionResult SaveLugar([FromBody] Lugar lugar)
         {
             var test = lugar;
-            lugaresRepository.SaveLugar(lugar);
+            lugaresRepository.GuardarLugar(lugar);
             return CreatedAtRoute("GetLugar", new { id = lugar.Id }, lugar);
 
         }
@@ -47,9 +46,26 @@ namespace LearningAngular6.Controllers
         [HttpPut("{id}")]
         public ActionResult<Lugar> UpdateLugar(int id, [FromBody]Lugar lugar)
         {
-            int updatedResponse = lugaresRepository.UpdateLugar(lugar);
-            if (updatedResponse != 0)
+            var foundlugar = _context.Lugares.Find(id);
+            if (foundlugar == null)
+            {
                 return NotFound();
+            }
+
+            foundlugar.Nombre = lugar.Nombre;
+            foundlugar.Descripcion = lugar.Descripcion;
+            foundlugar.Distancia = lugar.Distancia;
+            foundlugar.Cercania = lugar.Cercania;
+            foundlugar.Plan = lugar.Plan;
+            foundlugar.Lat = lugar.Lat;
+            foundlugar.Lng = lugar.Lng;
+            foundlugar.Calle = lugar.Calle;
+            foundlugar.Ciudad = lugar.Ciudad;
+            foundlugar.Pais = lugar.Pais;
+            foundlugar.FechaDeActualizacion = lugar.FechaDeActualizacion;
+
+            _context.Lugares.Update(foundlugar);
+            _context.SaveChanges();
             return NoContent();
         }
 

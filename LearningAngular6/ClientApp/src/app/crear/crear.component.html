@@ -1,29 +1,29 @@
 <div class="well">
-  <a routerLink="/lugares" routerLinkActive="router-link-active">Lugares</a>/ Crear Lugar
+  <a routerLink="/lugares">Lugares</a>/Crear lugar
 </div>
 <div class="container">
   <label>Nombre</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.nombre" />
+  <input [(ngModel)]="lugar.nombre" type="text" class="form-control" placeholder="Nombre" />
   <br />
   <label>Distancia</label>
-  <input type="number" class="form-control" [(ngModel)]="lugar.distancia" />
+  <input [(ngModel)]="lugar.distancia" type="text" class="form-control" placeholder="Distancia" />
   <br />
   <label>Cercania</label>
-  <input type="number" class="form-control" [(ngModel)]="lugar.cercania" />
+  <input [(ngModel)]="lugar.cercania" type="text" class="form-control" placeholder="Cercania" />
   <br />
   <label>Descripcion</label>
-  <textarea class="form-control" [(ngModel)]="lugar.descripcion"></textarea>
+  <input [(ngModel)]="lugar.descripcion" type="text" class="form-control" placeholder="Descripcion" />
   <br />
   <label>Plan</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.plan" />
+  <input [(ngModel)]="lugar.plan" type="text" class="form-control" placeholder="Plan" />
   <h3>Datos de Direccion</h3>
   <label>Calle y Numero</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.calle" />
+  <input [(ngModel)]="lugar.calle" type="text" class="form-control" placeholder="Calle" />
   <label>Ciudad</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.ciudad" />
+  <input [(ngModel)]="lugar.ciudad" type="text" class="form-control" placeholder="Ciudad" />
   <label>Pais</label>
-  <input type="text" class="form-control" [(ngModel)]="lugar.pais" />
-  <br/>
+  <input [(ngModel)]="lugar.pais" type="text" class="form-control" placeholder="Pais" />
+  <br />
   <hr />
   <a class="btn btn-primary" (click)="guardarLugar()">Enviar</a>
   <a class="btn btn-default" routerLink="/lugares">Cancelar</a>

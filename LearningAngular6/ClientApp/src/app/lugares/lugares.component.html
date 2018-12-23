@@ -5,12 +5,15 @@
 <div class="row">
   <div class="col-md-8">
     <h2>Lugares Cercanos</h2>
+    <a class="btn btn-primary" routerLink="/crear/new">Crear nuevo Negocio</a>
     <ul class="list-group">
-      <a class="btn btn-primary" routerLink="/crear/new">Crear nuevo Negocio</a>
       <ng-container *ngFor="let lugar of lugares">
-        <a [routerLink]="['/crear', lugar.id]">
-          <li class="list-group-item">{{lugar.nombre}} </li>
-        </a>
+        <li class="list-group-item">{{lugar.nombre}}>
+          <a [routerLink]="['/crear', lugar.id]"></a>
+        <br />
+        <small>Creado: {{lugar.fechaDeCreacion}}</small>
+        <p [innerHtml]="lugar.descripcion"></p>
+        </li>
       </ng-container>
     </ul>
   </div>

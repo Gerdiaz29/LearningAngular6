@@ -67,8 +67,8 @@ export class LugaresService {
   public editarLugar(lugar: Lugar): Observable<any> {
     // this.ItemId = this.afDB.database.ref();
     //this.afDB.database.ref('lugares/' + lugar.id).set(lugar);
-
-    return this.http.put<Lugar>(this.API_ENDPOINT, lugar, this.httpOptions).pipe(
+    debugger;
+    return this.http.put<Lugar>(this.API_ENDPOINT + '/' + lugar.id, lugar, this.httpOptions).pipe(
       catchError(this.handleError('edit lugar'))
     );
   }

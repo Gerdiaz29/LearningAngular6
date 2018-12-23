@@ -19,6 +19,7 @@ namespace LearningAngular6.Repository
         {
             try
             {
+
                 return _dbContext.Lugares.ToList();
             }
             catch (Exception ex)
@@ -45,7 +46,7 @@ namespace LearningAngular6.Repository
             return _dbContext.SaveChanges() >= 1;
         }
 
-        public bool SaveLugar(Lugar model)
+        public bool GuardarLugar(Lugar model)
         {
             Lugar lugar = _dbContext.Lugares.Where(w => w.Id == model.Id).FirstOrDefault();
 
@@ -62,7 +63,8 @@ namespace LearningAngular6.Repository
                     Lng = model.Lng,
                     Calle = model.Calle,
                     Ciudad = model.Ciudad,
-                    Pais = model.Pais
+                    Pais = model.Pais,
+                    FechaDeCreacion = model.FechaDeCreacion,
                 };
                 _dbContext.Lugares.Add(lugar);
             }
@@ -78,11 +80,12 @@ namespace LearningAngular6.Repository
                 lugar.Calle = model.Calle;
                 lugar.Ciudad = model.Ciudad;
                 lugar.Pais = model.Pais;
+                lugar.FechaDeActualizacion = model.FechaDeActualizacion;
             }
             return _dbContext.SaveChanges() >= 1;
         }
 
-        internal int UpdateLugar(Lugar lugar)
+        internal int SaveLugar(Lugar lugar)
         {
             try
             {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LugaresService } from '../services/lugares.service';
 import { Lugar } from '../Model/lugar.model';
 
@@ -7,14 +7,12 @@ import { Lugar } from '../Model/lugar.model';
   templateUrl: './lugares.component.html',
   styleUrls: ['./lugares.component.css']
 })
-export class LugaresComponent {
+export class LugaresComponent implements OnInit {
   lat = 10.2134704;
   lng = -67.8741502;
   lugares: Lugar[];
 
-  constructor(private lugaresService: LugaresService) {
-    lugaresService.getLugares();
-  }
+  constructor(private lugaresService: LugaresService) { }
 
   ngOnInit() {
     this.getLugares();

@@ -1,5 +1,5 @@
+import { LOCALE_ID,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AgmCoreModule } from '@agm/core';
 import { LugaresService } from './services/lugares.service';
+import { ResaltarDirective } from './directives/resaltar_directive';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -40,8 +41,10 @@ const appRoutes: Routes = [
     LugaresComponent,
     DetalleComponent,
     CrearComponent,
-    ContactoComponent
+    ContactoComponent,
+    ResaltarDirective
   ],
+
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -55,7 +58,7 @@ const appRoutes: Routes = [
     })
 
   ],
-  providers: [LugaresService],
+  providers: [LugaresService,[{ provide: LOCALE_ID, useValue: 'es-US' }]] ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
