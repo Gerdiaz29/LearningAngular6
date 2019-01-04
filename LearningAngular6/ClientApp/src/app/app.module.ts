@@ -20,6 +20,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AgmCoreModule } from '@agm/core';
 import { LugaresService } from './services/lugares.service';
 import { ResaltarDirective } from './directives/resaltar_directive';
+import { TablesComponent } from './tables/table.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'crear/:id', component: CrearComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'fetch-data', component: FetchDataComponent },
+  { path: 'tables', component: TablesComponent }
 ];
 
 @NgModule({
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     DetalleComponent,
     CrearComponent,
     ContactoComponent,
-    ResaltarDirective
+    ResaltarDirective,
+    TablesComponent
   ],
 
   imports: [

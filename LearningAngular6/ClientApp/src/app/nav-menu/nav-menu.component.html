@@ -37,6 +37,11 @@
             <span class='glyphicon glyphicon-th-list'></span> Contacto
           </a>
         </li>
+        <li [routerLinkActive]='["link-active"]'>
+          <a [routerLink]="['/tables']" (click)='collapse()'>
+            <span class='glyphicon glyphicon-th-list'></span> Tablas
+          </a>
+        </li>
       </ul>
     </div>
   </div>

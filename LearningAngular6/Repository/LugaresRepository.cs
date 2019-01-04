@@ -22,7 +22,7 @@ namespace LearningAngular6.Repository
 
                 return _dbContext.Lugares.ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Lugar>();
             }
